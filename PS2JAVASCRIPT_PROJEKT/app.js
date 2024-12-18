@@ -1,41 +1,34 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
+const express = require('express');
+const bodyParser = require('body-parser');
+const sequelize = require('./db');
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+// Importujemy kontrolery
+const uzytkownikController = require('./controllers/uzytkownikController');
+const produktController = require('./controllers/produktController');
+const koszykController = require('./controllers/koszykController');
 
-var app = express();
+// Inicjalizacja aplikacji Express
+const app = express();
+const port = 3000;
 
-// view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'pug');
+// Middleware
+app.use(bodyParser.json()); // Obs³uguje dane w formacie JSON
+app.use(bodyParser.urlencoded({ extended: true }));
 
-app.use(logger('dev'));
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
-
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
-
-// catch 404 and forward to error handler
-app.use(function(req, res, next) {
-  next(createError(404));
+// Synchronizacja bazy danych
+sequelize.sync().then(() => {
+    console.log('Baza danych jest zsynchronizowana.');
 });
 
-// error handler
-app.use(function(err, req, res, next) {
-  // set locals, only providing error in development
-  res.locals.message = err.message;
-  res.locals.error = req.app.get('env') === 'development' ? err : {};
+// Trasy (routingi) aplikacji
+app.post('/register', uzytkownikController.register);
+app.post('/login', uzytkownikController.login);
+app.get('/produkty', produktController.getProducts);
+app.post('/koszyk', koszykController.addProductToCart);
+app.delete('/koszyk', koszykController.removeProductFromCart);
+app.get('/koszyk/:uzytkownikId', koszykController.getCart);
 
-  // render the error page
-  res.status(err.status || 500);
-  res.render('error');
+// Uruchomienie serwera
+app.listen(port, () => {
+    console.log(`Aplikacja dzia³a na porcie ${port}`);
 });
-
-module.exports = app;
