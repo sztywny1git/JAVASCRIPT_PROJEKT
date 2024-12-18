@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.VisualStudio.JavaScript.Sdk/0.5.271090-alpha">
+  <PropertyGroup>
+    <StartupCommand>npm start</StartupCommand>
+    <!-- Allows the build (or compile) script located on package.json to run on Build -->
+    <ShouldRunBuildScript>false</ShouldRunBuildScript>
+  </PropertyGroup>
+  <ItemGroup>
+    <Folder Include="backend\models\" />
+    <Folder Include="backend\controllers\" />
+    <Folder Include="frontend\components\" />
+    <Folder Include="frontend\utils\" />
+    <Folder Include="frontend\styles\" />
+    <Folder Include="frontend\services\" />
+  </ItemGroup>
+</Project>
