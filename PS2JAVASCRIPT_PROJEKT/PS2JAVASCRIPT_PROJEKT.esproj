@@ -5,7 +5,6 @@
     <ShouldRunBuildScript>false</ShouldRunBuildScript>
   </PropertyGroup>
   <ItemGroup>
-    <Folder Include="backend\models\" />
     <Folder Include="backend\controllers\" />
     <Folder Include="frontend\components\" />
     <Folder Include="frontend\utils\" />
