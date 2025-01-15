@@ -1,11 +1,11 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const sequelize = require('./db');
+const sequelize = require('./db'); // Importujemy po³¹czenie z baz¹ danych
 
 // Importujemy kontrolery
-const uzytkownikController = require('./controllers/userController');
-const produktController = require('./controllers/productController');
-const koszykController = require('./controllers/cartController');
+const uzytkownikController = require('./backend/controllers/userController');
+const produktController = require('./backend/controllers/productController');
+const koszykController = require('./backend/controllers/cartController');
 
 // Inicjalizacja aplikacji Express
 const app = express();
