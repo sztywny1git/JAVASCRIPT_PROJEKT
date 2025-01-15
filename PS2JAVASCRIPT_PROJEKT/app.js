@@ -3,9 +3,9 @@ const bodyParser = require('body-parser');
 const sequelize = require('./db');
 
 // Importujemy kontrolery
-const uzytkownikController = require('./controllers/uzytkownikController');
-const produktController = require('./controllers/produktController');
-const koszykController = require('./controllers/koszykController');
+const uzytkownikController = require('./controllers/userController');
+const produktController = require('./controllers/productController');
+const koszykController = require('./controllers/cartController');
 
 // Inicjalizacja aplikacji Express
 const app = express();
@@ -23,10 +23,10 @@ sequelize.sync().then(() => {
 // Trasy (routingi) aplikacji
 app.post('/register', uzytkownikController.register);
 app.post('/login', uzytkownikController.login);
-app.get('/produkty', produktController.getProducts);
-app.post('/koszyk', koszykController.addProductToCart);
+app.get('/products', produktController.getProducts);
+app.post('/cart', koszykController.addProductToCart);
 app.delete('/koszyk', koszykController.removeProductFromCart);
-app.get('/koszyk/:uzytkownikId', koszykController.getCart);
+app.get('/cart/:userId', koszykController.getCart);
 
 // Uruchomienie serwera
 app.listen(port, () => {

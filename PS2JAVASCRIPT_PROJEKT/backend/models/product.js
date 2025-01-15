@@ -1,29 +1,29 @@
 // models/produkt.js
 const { DataTypes } = require('sequelize');
-const sequelize = require('../db');
+const sequelize = require('../../db');
 
-const Produkt = sequelize.define('Produkt', {
+const Product = sequelize.define('Product', {
     id: {
         type: DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true,
     },
-    nazwa: {
+    name: {
         type: DataTypes.STRING,
         allowNull: false,
     },
-    cena: {
+    price: {
         type: DataTypes.FLOAT,
         allowNull: false,
     },
-    opis: {
+    desc: {
         type: DataTypes.STRING,
         allowNull: true,
     },
-    ilosc: {
+    quantity: {
         type: DataTypes.INTEGER,
         defaultValue: 1,
     },
 });
 
-module.exports = Produkt;
+module.exports = Product;
