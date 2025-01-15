@@ -1,3 +1,4 @@
+// app.js
 const express = require('express');
 const bodyParser = require('body-parser');
 const sequelize = require('./db'); // Importujemy po³¹czenie z baz¹ danych
@@ -28,7 +29,5 @@ app.post('/cart', koszykController.addProductToCart);
 app.delete('/koszyk', koszykController.removeProductFromCart);
 app.get('/cart/:userId', koszykController.getCart);
 
-// Uruchomienie serwera
-app.listen(port, () => {
-    console.log(`Aplikacja dzia³a na porcie ${port}`);
-});
+// Eksportowanie aplikacji
+module.exports = app;
