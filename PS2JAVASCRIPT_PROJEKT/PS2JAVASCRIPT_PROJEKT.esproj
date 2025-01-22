@@ -7,7 +7,6 @@
   <ItemGroup>
     <Folder Include="frontend\components\" />
     <Folder Include="frontend\utils\" />
-    <Folder Include="frontend\styles\" />
     <Folder Include="frontend\services\" />
   </ItemGroup>
 </Project>

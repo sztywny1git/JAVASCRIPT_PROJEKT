@@ -1,11 +1,39 @@
 <!DOCTYPE html>
-
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strona Główna</title>
+    <link rel="stylesheet" href="./styles/main.css">
 </head>
 <body>
+    <!-- Header -->
+    <header id="main-header">
+        <nav>
+            <h1 class="logo">Moja Sklepowa Aplikacja</h1>
+            <ul class="nav-links">
+                <li><a href="#" class="nav-item">Home</a></li>
+                <li><a href="#products" class="nav-item">Produkty</a></li>
+                <li><a href="#about" class="nav-item">O Nas</a></li>
+                <li><a href="#contact" class="nav-item">Kontakt</a></li>
+            </ul>
+        </nav>
+    </header>
 
+    <!-- Main Content -->
+    <main>
+        <section id="hero">
+            <h2>Witamy w naszym sklepie!</h2>
+            <p>Najlepsze produkty w najlepszych cenach.</p>
+            <button id="shop-now">Zacznij zakupy</button>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Moja Sklepowa Aplikacja. Wszelkie prawa zastrzeżone.</p>
+    </footer>
+
+    <script type="module" src="./components/header.js"></script>
 </body>
 </html>
